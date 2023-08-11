@@ -4,7 +4,8 @@ using System.Text.Json;
 using StackExchange.Redis;
 using Microsoft.Extensions.Logging;
 
-public class RedisMessage<T> {
+public class RedisMessage<T>
+{
     public DateTime TriggeredAt { get; set; } = DateTime.UtcNow;
     public required T Data { get; set; }
 }
@@ -28,10 +29,13 @@ public class PubSubServer<T> : IPubSubServer<T>
         _channel = typeof(T).Name;
         _redis = redisConnection.Connection;
         _logger = logger;
+
+        // TODO: Make listening optional
         Listen();
     }
 
-    public void Listen() {
+    public void Listen()
+    {
         var sub = _redis.GetSubscriber();
         sub.Subscribe(
             RedisChannel.Literal(_channel),
@@ -94,8 +98,12 @@ public class PubSubServer<T> : IPubSubServer<T>
         var ping = await sub.PingAsync();
         _logger.LogDebug($"{_channel} ping time: {ping.TotalMilliseconds}");
 
-        var wrappedMessage = new RedisMessage<T>{ Data = message };
-        await sub.PublishAsync(RedisChannel.Literal(_channel), JsonSerializer.Serialize(wrappedMessage), flags);
+        var wrappedMessage = new RedisMessage<T> { Data = message };
+        await sub.PublishAsync(
+            RedisChannel.Literal(_channel),
+            JsonSerializer.Serialize(wrappedMessage),
+            flags
+        );
     }
 
     public void Dispose()

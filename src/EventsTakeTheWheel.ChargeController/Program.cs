@@ -18,16 +18,6 @@ var logger = loggerFactory.CreateLogger<PubSubServer<ChargePollMessage>>();
 
 var pubSub = new PubSubServer<ChargePollMessage>(redisConnection, logger);
 
-pubSub.RegisterHandler(
-    (message, triggeredAt) =>
-    {
-        Console.WriteLine(
-            $"Recieved {message.CurrentCharge.Value} kilowatts from event bus for device: {message.Device.Value}"
-        );
-        return Task.CompletedTask;
-    }
-);
-
 var cancellationTokenSource = new CancellationTokenSource();
 var cancellationToken = cancellationTokenSource.Token;
 var poll = new Thread(async () =>
@@ -43,6 +33,9 @@ var poll = new Thread(async () =>
         };
         kilowatts.Value = Math.Round(kilowatts.Value, 2);
 
+        Console.WriteLine(
+            $"Publishing {kilowatts.Value} kilowatts for device: {deviceSerialNumber.Value}"
+        );
         await pubSub.PublishAsync(
             new ChargePollMessage { Device = deviceSerialNumber, CurrentCharge = kilowatts }
         );
