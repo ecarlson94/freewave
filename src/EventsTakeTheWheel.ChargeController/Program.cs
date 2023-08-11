@@ -49,6 +49,7 @@ poll.Start();
 
 Console.WriteLine("Press any key to stop");
 Console.ReadKey();
+cancellationTokenSource.Cancel();
 
 cancellationTokenSource.Dispose();
 pubSub.Dispose();

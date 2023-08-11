@@ -1,5 +1,6 @@
 using EventsTakeTheWheel.BFF.Features.ChargeController;
 using EventsTakeTheWheel.BFF.Services;
+using EventsTakeTheWheel.Domain.Data;
 using MongoDB.Driver;
 using MongoDB.Entities;
 
@@ -24,6 +25,9 @@ void ConfigureServices(IServiceCollection services, ConfigurationManager configu
 
     // Configure gRPC
     services.AddGrpc();
+
+    // Configure ChargePollCollection
+    services.AddTransient<IChargePollCollection, ChargePollCollection>();
 }
 
 void ConfigureEndpoints(IEndpointRouteBuilder app)

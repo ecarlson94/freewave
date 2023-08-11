@@ -40,7 +40,7 @@ public class ChargePollProcessor : BackgroundService
 
     private async Task OnNewMessageReceived(
         ChargeControllerChargePollMessage message,
-        DateTime triggerredAt
+        DateTimeOffset triggerredAt
     )
     {
         _logger.LogInformation(

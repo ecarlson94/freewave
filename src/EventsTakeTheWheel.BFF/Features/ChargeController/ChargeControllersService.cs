@@ -26,6 +26,9 @@ public class ChargeControllersService : ChargeControllers.ChargeControllersBase
     {
         // TODO: Filter by controller ids "associated" with the user
         // TODO: Use mongodb $bucket stage of aggregation pipeline to get averages grouped by time windows
+        Console.WriteLine(
+            $"Refresh interval: {request.RefreshInterval.ToTimeSpan().TotalMilliseconds}"
+        );
         while (!context.CancellationToken.IsCancellationRequested)
         {
             var aggregationWindow = request.AggregationWindow.ToTimeSpan();
@@ -42,9 +45,10 @@ public class ChargeControllersService : ChargeControllers.ChargeControllersBase
                     Kilowatts = new Kilowatt { Value = averageCharge }
                 }
             );
-            await responseStream.WriteAsync(new());
+            await responseStream.WriteAsync(response);
 
-            Thread.Sleep(request.RefreshInterval.ToTimeSpan().Milliseconds);
+            Console.WriteLine($"Sent average charge info: {averageCharge}");
+            await Task.Delay((int)request.RefreshInterval.ToTimeSpan().TotalMilliseconds);
         }
     }
 }

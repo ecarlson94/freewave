@@ -6,14 +6,14 @@ using Microsoft.Extensions.Logging;
 
 public class RedisMessage<T>
 {
-    public DateTime TriggeredAt { get; set; } = DateTime.UtcNow;
+    public DateTimeOffset TriggeredAt { get; set; } = DateTimeOffset.UtcNow;
     public required T Data { get; set; }
 }
 
 public interface IPubSubServer<T> : IDisposable
 {
-    void RegisterHandler(Func<T, DateTime, Task> handler);
-    void DeregisterHanlder(Func<T, DateTime, Task> handler);
+    void RegisterHandler(Func<T, DateTimeOffset, Task> handler);
+    void DeregisterHanlder(Func<T, DateTimeOffset, Task> handler);
     Task PublishAsync(T message, CommandFlags flags = CommandFlags.FireAndForget);
 }
 
@@ -83,10 +83,10 @@ public class PubSubServer<T> : IPubSubServer<T>
         );
     }
 
-    public void RegisterHandler(Func<T, DateTime, Task> handler) =>
+    public void RegisterHandler(Func<T, DateTimeOffset, Task> handler) =>
         _handlers.Add(new HandlerScope { Handler = handler });
 
-    public void DeregisterHanlder(Func<T, DateTime, Task> handler) =>
+    public void DeregisterHanlder(Func<T, DateTimeOffset, Task> handler) =>
         _handlers.Remove(_handlers.Where(x => x.Handler == handler).First());
 
     public async Task PublishAsync(T message, CommandFlags flags = CommandFlags.FireAndForget)
@@ -114,7 +114,7 @@ public class PubSubServer<T> : IPubSubServer<T>
 
     private class HandlerScope
     {
-        public Func<T, DateTime, Task> Handler { get; set; } = (_, __) => Task.CompletedTask;
+        public Func<T, DateTimeOffset, Task> Handler { get; set; } = (_, __) => Task.CompletedTask;
         public SemaphoreSlim SemaphoreGate { get; } = new SemaphoreSlim(1);
     }
 }

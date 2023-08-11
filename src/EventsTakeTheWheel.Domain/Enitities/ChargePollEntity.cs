@@ -7,5 +7,5 @@ public class ChargePollEntity : Entity
 {
     public SerialNumber DeviceSerialNumber { get; set; } = new();
     public Kilowatts Kilowatts { get; set; } = new();
-    public DateTime TriggeredAt { get; set; } = DateTime.UtcNow;
+    public DateTimeOffset TriggeredAt { get; set; } = DateTimeOffset.UtcNow;
 }
