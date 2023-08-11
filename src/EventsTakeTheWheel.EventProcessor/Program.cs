@@ -1,3 +1,4 @@
+using EventsTakeTheWheel.Domain.Data;
 using EventsTakeTheWheel.Domain.Messages;
 using EventsTakeTheWheel.EventProcessor.Data.Redis;
 using EventsTakeTheWheel.EventProcessor.Features.ChargeController;

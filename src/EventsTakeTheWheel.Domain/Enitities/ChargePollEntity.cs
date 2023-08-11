@@ -1,7 +1,7 @@
 using EventsTakeTheWheel.Domain.Values;
 using MongoDB.Entities;
 
-namespace EventsTakeTheWheel.EventProcessor.Features.ChargeController;
+namespace EventsTakeTheWheel.Domain.Enitities;
 
 public class ChargePollEntity : Entity
 {

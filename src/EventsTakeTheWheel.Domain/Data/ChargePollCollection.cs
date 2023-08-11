@@ -1,6 +1,7 @@
+using EventsTakeTheWheel.Domain.Enitities;
 using MongoDB.Entities;
 
-namespace EventsTakeTheWheel.EventProcessor.Features.ChargeController;
+namespace EventsTakeTheWheel.Domain.Data;
 
 public interface IChargePollCollection
 {

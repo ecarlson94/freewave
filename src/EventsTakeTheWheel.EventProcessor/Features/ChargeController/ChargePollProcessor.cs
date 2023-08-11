@@ -1,3 +1,5 @@
+using EventsTakeTheWheel.Domain.Data;
+using EventsTakeTheWheel.Domain.Enitities;
 using EventsTakeTheWheel.Domain.Messages;
 using EventsTakeTheWheel.Infrastructure.Data.Redis;
 
