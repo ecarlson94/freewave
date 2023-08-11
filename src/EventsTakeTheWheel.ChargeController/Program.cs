@@ -14,9 +14,9 @@ var loggerFactory = LoggerFactory.Create(builder =>
 });
 
 var redisConnection = new RedisConnection(new RedisSettings());
-var logger = loggerFactory.CreateLogger<PubSubServer<ChargePollMessage>>();
+var logger = loggerFactory.CreateLogger<PubSubServer<ChargeControllerChargePollMessage>>();
 
-var pubSub = new PubSubServer<ChargePollMessage>(redisConnection, logger);
+var pubSub = new PubSubServer<ChargeControllerChargePollMessage>(redisConnection, logger);
 
 var cancellationTokenSource = new CancellationTokenSource();
 var cancellationToken = cancellationTokenSource.Token;
@@ -37,7 +37,11 @@ var poll = new Thread(async () =>
             $"Publishing {kilowatts.Value} kilowatts for device: {deviceSerialNumber.Value}"
         );
         await pubSub.PublishAsync(
-            new ChargePollMessage { Device = deviceSerialNumber, CurrentCharge = kilowatts }
+            new ChargeControllerChargePollMessage
+            {
+                Device = deviceSerialNumber,
+                CurrentCharge = kilowatts
+            }
         );
     }
 });

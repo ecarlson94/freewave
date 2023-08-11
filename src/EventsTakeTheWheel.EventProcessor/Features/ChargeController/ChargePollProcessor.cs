@@ -1,20 +1,23 @@
 using EventsTakeTheWheel.Domain.Messages;
 using EventsTakeTheWheel.Infrastructure.Data.Redis;
 
-namespace EventsTakeTheWheel.EventProcessor;
+namespace EventsTakeTheWheel.EventProcessor.Features.ChargeController;
 
 public class ChargePollProcessor : BackgroundService
 {
     private readonly ILogger<ChargePollProcessor> _logger;
-    private readonly IPubSubServer<ChargePollMessage> _pubSub;
+    private readonly IPubSubServer<ChargeControllerChargePollMessage> _pubSub;
+    private readonly IChargePollCollection _chargePollCollection;
 
     public ChargePollProcessor(
         ILogger<ChargePollProcessor> logger,
-        IPubSubServer<ChargePollMessage> pubSub
+        IPubSubServer<ChargeControllerChargePollMessage> pubSub,
+        IChargePollCollection chargePollCollection
     )
     {
         _logger = logger;
         _pubSub = pubSub;
+        _chargePollCollection = chargePollCollection;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -33,11 +36,23 @@ public class ChargePollProcessor : BackgroundService
         _logger.LogInformation("ChargePollProcessor is stopping.");
     }
 
-    private Task OnNewMessageReceived(ChargePollMessage message, DateTime triggerredAt)
+    private async Task OnNewMessageReceived(
+        ChargeControllerChargePollMessage message,
+        DateTime triggerredAt
+    )
     {
         _logger.LogInformation(
             $"Received {message.CurrentCharge.Value} kilowatts for: {message.Device.Value}"
         );
-        return Task.CompletedTask;
+
+        var model = new ChargePollEntity
+        {
+            DeviceSerialNumber = message.Device,
+            Kilowatts = message.CurrentCharge,
+            TriggeredAt = triggerredAt
+        };
+        await _chargePollCollection.SaveAsync(model);
+
+        _logger.LogInformation($"Saved to database with id: {model.ID}");
     }
 }

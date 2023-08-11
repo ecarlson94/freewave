@@ -29,6 +29,7 @@ public class PubSubServer<T> : IPubSubServer<T>
         _channel = typeof(T).Name;
         _redis = redisConnection.Connection;
         _logger = logger;
+        // TODO: Add configuration settings to allow forceful bottlenecking by time or count
 
         // TODO: Make listening optional
         Listen();
