@@ -17,7 +17,8 @@
 				"formulahendry.dotnet-test-explorer",
 				"eamodio.gitlens",
 				"csharpier.csharpier-vscode",
-				"aliasadidev.nugetpackagemanagergui"
+				"aliasadidev.nugetpackagemanagergui",
+				"ms-dotnettools.vscode-dotnet-runtime"
 			]
 		}
 	},

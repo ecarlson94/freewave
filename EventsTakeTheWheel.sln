@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2A059B23-DC40-4E3B-A02A-3D1368DD3A0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsTakeTheWheel.ChargeController", "src\EventsTakeTheWheel.ChargeController\EventsTakeTheWheel.ChargeController.csproj", "{D748845C-45E0-435C-83A1-1CE3CB5DE3DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsTakeTheWheel.Infrastructure", "src\EventsTakeTheWheel.Infrastructure\EventsTakeTheWheel.Infrastructure.csproj", "{E770FB27-C35A-4C4D-A7D7-5A626B692E10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsTakeTheWheel.UI", "src\EventsTakeTheWheel.UI\EventsTakeTheWheel.UI.csproj", "{528601ED-EBD1-451D-9F71-82406D65E314}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsTakeTheWheel.Domain", "src\EventsTakeTheWheel.Domain\EventsTakeTheWheel.Domain.csproj", "{D9DA3D61-CD1A-4A7D-8861-06FE2F60D593}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsTakeTheWheel.EventProcessor", "src\EventsTakeTheWheel.EventProcessor\EventsTakeTheWheel.EventProcessor.csproj", "{C351E02B-437F-4A59-B83B-42DFDCE59E81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsTakeTheWheel.BFF", "src\EventsTakeTheWheel.BFF\EventsTakeTheWheel.BFF.csproj", "{1A66625B-A537-4AE4-9C76-7716D19FF8C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D748845C-45E0-435C-83A1-1CE3CB5DE3DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D748845C-45E0-435C-83A1-1CE3CB5DE3DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D748845C-45E0-435C-83A1-1CE3CB5DE3DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D748845C-45E0-435C-83A1-1CE3CB5DE3DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E770FB27-C35A-4C4D-A7D7-5A626B692E10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E770FB27-C35A-4C4D-A7D7-5A626B692E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E770FB27-C35A-4C4D-A7D7-5A626B692E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E770FB27-C35A-4C4D-A7D7-5A626B692E10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{528601ED-EBD1-451D-9F71-82406D65E314}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{528601ED-EBD1-451D-9F71-82406D65E314}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{528601ED-EBD1-451D-9F71-82406D65E314}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{528601ED-EBD1-451D-9F71-82406D65E314}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9DA3D61-CD1A-4A7D-8861-06FE2F60D593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9DA3D61-CD1A-4A7D-8861-06FE2F60D593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9DA3D61-CD1A-4A7D-8861-06FE2F60D593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9DA3D61-CD1A-4A7D-8861-06FE2F60D593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C351E02B-437F-4A59-B83B-42DFDCE59E81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C351E02B-437F-4A59-B83B-42DFDCE59E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C351E02B-437F-4A59-B83B-42DFDCE59E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C351E02B-437F-4A59-B83B-42DFDCE59E81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A66625B-A537-4AE4-9C76-7716D19FF8C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A66625B-A537-4AE4-9C76-7716D19FF8C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A66625B-A537-4AE4-9C76-7716D19FF8C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A66625B-A537-4AE4-9C76-7716D19FF8C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D748845C-45E0-435C-83A1-1CE3CB5DE3DB} = {2A059B23-DC40-4E3B-A02A-3D1368DD3A0D}
+		{E770FB27-C35A-4C4D-A7D7-5A626B692E10} = {2A059B23-DC40-4E3B-A02A-3D1368DD3A0D}
+		{528601ED-EBD1-451D-9F71-82406D65E314} = {2A059B23-DC40-4E3B-A02A-3D1368DD3A0D}
+		{D9DA3D61-CD1A-4A7D-8861-06FE2F60D593} = {2A059B23-DC40-4E3B-A02A-3D1368DD3A0D}
+		{C351E02B-437F-4A59-B83B-42DFDCE59E81} = {2A059B23-DC40-4E3B-A02A-3D1368DD3A0D}
+		{1A66625B-A537-4AE4-9C76-7716D19FF8C0} = {2A059B23-DC40-4E3B-A02A-3D1368DD3A0D}
+	EndGlobalSection
+EndGlobal
