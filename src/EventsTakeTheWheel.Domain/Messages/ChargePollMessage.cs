@@ -1,6 +1,6 @@
 using EventsTakeTheWheel.Domain.Values;
 
-namespace EventsTakeTheWheel.Domain;
+namespace EventsTakeTheWheel.Domain.Messages;
 
 public class ChargePollMessage {
   public required SerialNumber Device { get; set; }

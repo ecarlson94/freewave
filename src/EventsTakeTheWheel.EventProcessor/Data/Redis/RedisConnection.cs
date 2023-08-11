@@ -2,7 +2,7 @@ using EventsTakeTheWheel.Infrastructure.Data.Redis;
 using Microsoft.Extensions.Options;
 using StackExchange.Redis;
 
-namespace EventsTakeTheWheel.Service.Data.Redis;
+namespace EventsTakeTheWheel.EventProcessor.Data.Redis;
 
 public class RedisConnection : IRedisConnection
 {
