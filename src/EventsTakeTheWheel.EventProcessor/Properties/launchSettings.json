@@ -3,6 +3,7 @@
     "EventsTakeTheWheel.EventProcessor": {
       "commandName": "Project",
       "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5177;https://localhost:7107",
       "environmentVariables": {
         "DOTNET_ENVIRONMENT": "Development"
       }

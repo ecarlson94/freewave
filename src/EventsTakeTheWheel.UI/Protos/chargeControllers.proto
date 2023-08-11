@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option csharp_namespace = "EventsTakeTheWheel.BFF";
+
+import "google/protobuf/duration.proto";
+import "google/protobuf/timestamp.proto";
+
+service ChargeControllers {
+  // Endpoint for streaming charge info for available controllers
+  rpc StreamChargeInfo(StreamChargeInfoRequest) returns (stream StreamChargeInfoResponse) {}
+}
+
+message Kilowatt {
+  // The number of kilowatts
+  double value = 1;
+}
+message AverageChargeInfo {
+  // The time of the poll
+  google.protobuf.Timestamp time = 1;
+  // The kilowatts used
+  Kilowatt kilowatts = 2;
+}
+
+message StreamChargeInfoRequest {
+  // The window of time to aggregate charge info
+  google.protobuf.Duration aggregationWindow = 1;
+  // The number of data points to aggregate
+  int32 aggregationCount = 2;
+  // Refresh interval for the stream
+  google.protobuf.Duration refreshInterval = 3;
+}
+message StreamChargeInfoResponse {
+  repeated AverageChargeInfo averageChargeInfos = 1;
+}

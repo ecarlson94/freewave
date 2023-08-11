@@ -7,16 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\*.proto" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.24.0" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
+    <PackageReference Include="MongoDB.Entities" Version="22.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\EventsTakeTheWheel.Domain\EventsTakeTheWheel.Domain.csproj" />
-    <ProjectReference Include="..\EventsTakeTheWheel.Infrastructure\EventsTakeTheWheel.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
