@@ -50,7 +50,7 @@ After installing WSL2, follow these steps:
 
 ## Getting Started
 
-This project has 4 projects to truly let Events Take The Wheel. For each of the following folders, you need to open a new terminal and run `dotnet run` in the order the folders are listed:
+This repo has 4 projects to truly let Events Take The Wheel. For each of the following folders, you need to open a new terminal and run `dotnet run` in the order the folders are listed:
 
 1. [./src/EventsTakeTheWheel.ChargeController](./src/EventsTakeTheWheel.ChargeController)
    - This is a console application that represents an IoT device constantly emitting data
