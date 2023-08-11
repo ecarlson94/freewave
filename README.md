@@ -50,6 +50,8 @@ After installing WSL2, follow these steps:
 
 ## Getting Started
 
+- Clone the repo. If you are using WSL, make sure to clone the repo inside WSL, not to your host machine.
+
 This repo has 4 projects to truly let Events Take The Wheel. For each of the following folders, you need to open a new terminal and run `dotnet run` in the order the folders are listed:
 
 1. [./src/EventsTakeTheWheel.ChargeController](./src/EventsTakeTheWheel.ChargeController)
